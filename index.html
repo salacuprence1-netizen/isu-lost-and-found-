@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Lost & Found</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Campus Lost & Found</h1>
+  <p>Report lost items and found items safely.</p>
+</header>
+
+<main class="container">
+  <section class="card">
+    <h2>What would you like to report?</h2>
+    <div class="button-grid">
+      <button onclick="showForm('lost')">🔎 Report Lost Item</button>
+      <button onclick="showForm('found')">📦 Report Found Item</button>
+      <button onclick="showReports()">📋 View Verified Reports</button>
+    </div>
+  </section>
+
+  <section id="formSection" class="card hidden">
+    <h2 id="formTitle">Report</h2>
+    <form id="reportForm">
+      <input type="hidden" id="reportType">
+
+      <label>Full Name</label>
+      <input id="name" required maxlength="80">
+
+      <label>Student ID</label>
+      <input id="studentId" required maxlength="30" placeholder="e.g. 2026-12345">
+
+      <label>School Email</label>
+      <input id="email" type="email" required maxlength="100" placeholder="student@school.edu">
+
+      <label>Item Name</label>
+      <input id="itemName" required maxlength="80">
+
+      <label>Item Description</label>
+      <textarea id="description" required maxlength="500" placeholder="Color, brand, identifying marks, etc."></textarea>
+
+      <label id="locationLabel">Where was it lost?</label>
+      <input id="location" required maxlength="120">
+
+      <label>Date</label>
+      <input id="date" type="date" required>
+
+      <label>Additional Details</label>
+      <textarea id="details" maxlength="500" placeholder="Optional"></textarea>
+
+      <label class="check">
+        <input type="checkbox" id="truth" required>
+        I confirm that this report is truthful and is not a prank or false report.
+      </label>
+
+      <label class="check">
+        <input type="checkbox" id="consent" required>
+        I agree that the school administrator may verify this report.
+      </label>
+
+      <div class="captcha-box">
+        <strong>Anti-spam check</strong>
+        <p id="captchaQuestion"></p>
+        <input id="captchaAnswer" type="number" required placeholder="Answer">
+      </div>
+
+      <button type="submit">Submit Report</button>
+      <button type="button" class="secondary" onclick="closeForm()">Cancel</button>
+    </form>
+  </section>
+
+  <section id="reportsSection" class="card hidden">
+    <h2>Verified Reports</h2>
+    <input id="searchBox" oninput="renderReports()" placeholder="Search item or location...">
+    <div id="reportsList"></div>
+  </section>
+
+  <section class="card">
+    <h2>How it works</h2>
+    <ol>
+      <li>Scan the school Lost & Found QR code.</li>
+      <li>Choose Lost Item or Found Item.</li>
+      <li>Submit truthful details.</li>
+      <li>Admin verifies the report.</li>
+      <li>Verified reports can be matched and claimed.</li>
+    </ol>
+  </section>
+</main>
+
+<footer>Campus Lost & Found Prototype</footer>
+<script src="script.js"></script>
+</body>
+</html>
