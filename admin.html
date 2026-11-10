@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lost & Found Admin</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Admin Dashboard</h1>
+  <p>Review reports and manage claims.</p>
+</header>
+
+<main class="container">
+  <section id="loginCard" class="card">
+    <h2>Admin Login</h2>
+    <p class="small">Prototype password: <b>admin123</b></p>
+    <input id="adminPassword" type="password" placeholder="Enter password">
+    <button onclick="adminLogin()">Login</button>
+  </section>
+
+  <section id="dashboard" class="hidden">
+    <div class="stats">
+      <div class="stat"><b id="pendingCount">0</b><span>Pending</span></div>
+      <div class="stat"><b id="verifiedCount">0</b><span>Verified</span></div>
+      <div class="stat"><b id="claimedCount">0</b><span>Claimed</span></div>
+      <div class="stat"><b id="rejectedCount">0</b><span>Rejected</span></div>
+    </div>
+
+    <section class="card">
+      <h2>Reports</h2>
+      <input id="adminSearch" oninput="renderAdmin()" placeholder="Search reports...">
+      <div id="adminList"></div>
+    </section>
+
+    <section class="card">
+      <h2>QR Code</h2>
+      <p>Enter the URL where you will host <b>index.html</b>, then generate the QR code.</p>
+      <input id="siteUrl" placeholder="https://example.com/lost-found/">
+      <button onclick="generateQR()">Generate QR</button>
+      <div id="qrResult"></div>
+    </section>
+  </section>
+</main>
+
+<footer>Admin Panel - Prototype</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>
